@@ -11,7 +11,7 @@ use League\OpenAPIValidation\Schema\Exception\ContentTypeMismatch;
 use League\OpenAPIValidation\Schema\Exception\InvalidSchema;
 use League\OpenAPIValidation\Schema\Exception\SchemaMismatch;
 use League\OpenAPIValidation\Schema\Exception\TypeMismatch;
-use Respect\Validation\Validator;
+use Respect\Validation\ValidatorBuilder as Validator;
 use Throwable;
 
 use function explode;
@@ -75,12 +75,12 @@ final class SerializedParameter
         $content = $parameter->content;
         try {
             if ($parameter->schema !== null) {
-                Validator::not(Validator::notEmpty())->assert($content);
+                Validator::blank()->assert($content);
 
                 return new self($parameter->schema, null, $parameter->style, $parameter->explode, $parameter->in);
             }
 
-            Validator::length(1, 1)->assert($content);
+            Validator::length(Validator::equals(1))->assert($content);
         } catch (Throwable $e) {
             // If there is a `schema`, `content` must be empty.
             // If there isn't a `schema`, a `content` with exactly 1 property must exist.
@@ -139,7 +139,7 @@ final class SerializedParameter
                 return is_string($value) ? strtolower($value) === 'true' : (bool) $value;
             }
 
-            if (preg_match('#^(0|1)$#i', (string) $value)) {
+            if (preg_match('#^([01])$#i', (string) $value)) {
                 return (string) $value === '1';
             }
         }

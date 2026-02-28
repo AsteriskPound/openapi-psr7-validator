@@ -6,7 +6,7 @@ namespace League\OpenAPIValidation\Schema\Keywords;
 
 use League\OpenAPIValidation\Schema\Exception\InvalidSchema;
 use League\OpenAPIValidation\Schema\Exception\KeywordMismatch;
-use Respect\Validation\Validator;
+use Respect\Validation\ValidatorBuilder as Validator;
 use Throwable;
 
 use function count;

@@ -9,7 +9,7 @@ use League\OpenAPIValidation\Schema\BreadCrumb;
 use League\OpenAPIValidation\Schema\Exception\InvalidSchema;
 use League\OpenAPIValidation\Schema\Exception\KeywordMismatch;
 use League\OpenAPIValidation\Schema\SchemaValidator;
-use Respect\Validation\Validator;
+use Respect\Validation\ValidatorBuilder as Validator;
 use Throwable;
 
 use function array_unique;

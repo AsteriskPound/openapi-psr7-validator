@@ -10,7 +10,7 @@ use League\OpenAPIValidation\Schema\Exception\InvalidSchema;
 use League\OpenAPIValidation\Schema\Exception\KeywordMismatch;
 use League\OpenAPIValidation\Schema\Exception\SchemaMismatch;
 use League\OpenAPIValidation\Schema\SchemaValidator;
-use Respect\Validation\Validator;
+use Respect\Validation\ValidatorBuilder as Validator;
 use Throwable;
 
 class Not extends BaseKeyword

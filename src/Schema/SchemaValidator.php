@@ -29,6 +29,7 @@ use League\OpenAPIValidation\Schema\Keywords\Properties;
 use League\OpenAPIValidation\Schema\Keywords\Required;
 use League\OpenAPIValidation\Schema\Keywords\Type;
 use League\OpenAPIValidation\Schema\Keywords\UniqueItems;
+use Respect\Validation\ValidatorBuilder;
 
 use function count;
 use function is_array;
@@ -45,7 +46,7 @@ final class SchemaValidator implements Validator
 
     public function __construct(int $validationStrategy = self::VALIDATE_AS_RESPONSE)
     {
-        \Respect\Validation\Validator::in([self::VALIDATE_AS_REQUEST, self::VALIDATE_AS_RESPONSE])->assert($validationStrategy);
+        ValidatorBuilder::in([self::VALIDATE_AS_REQUEST, self::VALIDATE_AS_RESPONSE])->assert($validationStrategy);
 
         $this->validationStrategy = $validationStrategy;
     }

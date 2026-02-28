@@ -6,8 +6,8 @@ namespace League\OpenAPIValidation\Schema\Keywords;
 
 use League\OpenAPIValidation\Schema\Exception\InvalidSchema;
 use League\OpenAPIValidation\Schema\Exception\KeywordMismatch;
-use Respect\Validation\Rules\NumericVal;
-use Respect\Validation\Validator;
+use Respect\Validation\ValidatorBuilder as Validator;
+use Respect\Validation\Validators\NumericVal;
 use Throwable;
 
 use function class_exists;
